@@ -3,7 +3,7 @@
 .globl _start
 _start:
 pushq %rbp
-lea lpToggle_cfstring_(%rip), %rdi
+lea lpToggle_cfstring(%rip), %rdi
 xor %esi, %esi
 callq _CoreDockSendNotification
 xor %rdi, %rdi
@@ -13,7 +13,7 @@ syscall
 .section __TEXT,__cstring
 lpToggle: .asciz	"com.apple.launchpad.toggle"
 .section __DATA,__cfstring
-lpToggle_cfstring_:
+lpToggle_cfstring:
 	.quad	___CFConstantStringClassReference
 	.long	1992                    
 	.space	4
