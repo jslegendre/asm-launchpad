@@ -6,12 +6,11 @@ pushq %rbp
 lea lpToggle_cfstring(%rip), %rdi
 xor %esi, %esi
 callq _CoreDockSendNotification
-xor %rdi, %rdi
-mov $0x2000001, %rax
-syscall
+retq
 
 .section __TEXT,__cstring
 lpToggle: .asciz	"com.apple.launchpad.toggle"
+
 .section __DATA,__cfstring
 lpToggle_cfstring:
 	.quad	___CFConstantStringClassReference
